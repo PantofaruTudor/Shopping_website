@@ -1,14 +1,42 @@
 /* General styles */
+body{
+    margin:0;
+    font-family:"League Spartan", serif;
+}
 ul {
     padding: 0;
     margin: 0;
     list-style: none;
 }
-
-ul.categorii {
-    border-bottom: 2px solid #ccc;
+li{
+    cursor: pointer;
+}
+a{
+    pointer-events: none;
+    text-decoration: none;
+    color: black;
 }
 
+.main_menu{
+    height: 60px;
+    display: flex;
+    align-items: center;   
+    background-color: rgba(153, 94, 94, 0.733); 
+    padding: 0 10px 0 10px;
+}
+
+.main_menu_list{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.categorii{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 ul.categorii > li {
     position: relative;
     padding: 0;

@@ -4,22 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dropdown Menu Example</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&family=League+Spartan:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Shippori+Antique+B1&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="website.css">
 </head>
 <body>
     <div class="main_menu">
-        <ul>
-            <li>Meniu</li>
-            <li>Shopping</li>
-            <li></li>
-            <li></li>
-        </ul>
+        <ul class="main_menu_list">
+            <li><a href="#">Meniu</a></li>
+            <li><a href="#">Shopping</a></li>
+            <li><a href="#">Barbati</a></li>
+            <li><a href="#">Logo</a></li>
+            <li><a href="#">Femei</a></li>
+            <li><a href="#">Messages</a></li>
+            <li><a href="#">Liked</a></li>
+        </ul> 
     </div>
     <div class="grid-container">
         <ul class="categorii">
             <li class="noutati"><a href="#">Noutati</a></li>
             <li class="imbracaminte"><a href="#">Imbracaminte</a></li>
             <li class="incaltaminte"><a href="#">Incaltaminte</a></li>
+            <li class="sale"><a href="#">Sale</a></li>
         </ul>
         <div class="noutati_dropdown dropdown">
             <ul>
@@ -43,7 +52,6 @@
             </ul>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
