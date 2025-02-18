@@ -57,7 +57,6 @@ a{
 
 .search-input:focus{
     border-color: rgb(0, 0, 0);
-    font-size: 1.2rem;
     width: 200px;
 }
 
@@ -71,30 +70,37 @@ a{
 .main_menu_segments{
     display: inline-flex;
     justify-content: space-between;
-    gap:10px;
     align-items: center;
 }
 .main_menu_segments img{
     width: 30px;
     height: 30px;
 }
+
+#center_main_menu img{
+    height: 50px;
+    width: 50px;
+}
 .search-container
 {
     display: flex;
     align-items: center;
 }
-.barbati{
-    border-color: rgba(15, 12, 12, 0.575);
+#barbati{
+    border-color: rgb(0, 0, 0);
     padding: 10px;
     border-radius: 15px;
-    border-style: solid;
+    border: 2px solid;
     cursor: pointer;
+}
+a.gen{
     transition: border-color 0.3s ease, color 0.3s ease;
+    
 }
 
-a.barbati:hover{
-    border-color: grey;
-    color: grey
+a.gen:hover{
+    border-color: rgb(77,77,77);
+    color: rgb(77,77,77)
 }
 
 .main_menu_list > #center_main_menu{

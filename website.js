@@ -33,3 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+const main_menu_segments = document.querySelectorAll(".main_menu_segments")
+main_menu_segments.forEach(item => {
+    item.style.gap = "20px";
+})
