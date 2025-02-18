@@ -112,6 +112,19 @@ a.gen:hover{
     justify-content: center;
 }
 
+@media only screen and (max-width:900px){
+    .search-input{
+        display: none;
+    }
+}
+
+@media only screen and (max-width:600px){
+    #left_main_menu,#right_main_menu{
+        display: none;
+    }
+}
+
+
 /* MAIN MENU(deasupra)----------------------------------------------*/
 
 .categorii{
@@ -121,12 +134,12 @@ a.gen:hover{
 }
 ul.categorii > li {
     position: relative;
-    padding: 0;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.2rem;
+    color: black;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom: white;
+    transition: background-color 0.3s ease, color 0.3s ease, border-bottom 0.3s ease;
 }
 
 ul.categorii > li a {
@@ -135,16 +148,6 @@ ul.categorii > li a {
     height: 100%;
     padding: 10px;
     color: inherit;
-    text-decoration: none;
-}
-
-ul.categorii > li:hover,
-ul.categorii > li:hover a {
-    color: lightgrey;
-}
-
-ul.categorii > li:hover {
-    background-color: #0056b3;
 }
 
 ul.categorii > li::after {
@@ -152,18 +155,35 @@ ul.categorii > li::after {
     display: block;
     width: 0;
     height: 2px;
-    background-color: white;
+    background-color: black;
     position: absolute;
     bottom: -2px;
     left: 0;
     transition: width 0.3s ease;
 }
 
-ul.categorii > li:hover::after {
-    width: 100%;
+ul.categorii > li.sale{
+    color: red;
 }
 
-/* Remove bullet points from dropdown menu */
+li.sale::after
+{
+    background-color: red;
+}
+li.sale:hover::after{
+    background-color: red;
+}
+ul.categorii > li:hover::after {
+    width: 100%;
+    
+}
+
+ul.categorii > li.sale::after{
+    background-color: red;
+}
+
+
+/*SUB-MENU(deasupra)--------------------------------- */
 .dropdown ul {
     list-style: none;
     padding: 0;

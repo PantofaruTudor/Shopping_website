@@ -1,3 +1,9 @@
+const main_menu_segments = document.querySelectorAll(".main_menu_segments")
+main_menu_segments.forEach(item => {
+    item.style.gap = "20px";
+})
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const listItems = document.querySelectorAll('.categorii li');
     let hoverTimeout;
@@ -33,7 +39,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-const main_menu_segments = document.querySelectorAll(".main_menu_segments")
-main_menu_segments.forEach(item => {
-    item.style.gap = "20px";
-})
