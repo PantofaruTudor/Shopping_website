@@ -3,6 +3,9 @@ body{
     margin:0;
     font-family:"League Spartan", serif;
 }
+*{
+    box-sizing: border-box;
+}
 ul {
     padding: 0;
     margin: 0;
@@ -131,11 +134,17 @@ a.gen:hover{
     display: flex;
     justify-content: center;
     width: 100%;
+    align-items: center;
+    position: relative;
+}
+
+.grid_container{
+    position: relative;
 }
 ul.categorii > li {
     position: relative;
     padding: 10px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: black;
     cursor: pointer;
     border-bottom: white;
@@ -184,41 +193,35 @@ ul.categorii > li.sale::after{
 
 
 /*SUB-MENU(deasupra)--------------------------------- */
-.dropdown ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
 
-/* Dropdown styling */
-.dropdown {
-    display: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.dropdown.show {
+.dropdown_area
+{
     display: block;
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.dropdown_info{
+    background-color: rgba(153, 111, 57, 0.288);
+    position: absolute;
+    width: 100%;
+    padding: 10px;
+}
+
+.dropdown_info ul li{
+    padding: 5px 0 5px 0;
+}
+
+.dropdown_info ul li a{
+    font-size: 1.15rem;
+    font-weight:300;
+}
+
+.show{
     opacity: 1;
     visibility: visible;
+    pointer-events: all;
 }
 
-/* Optional: Add some style for visibility */
-.dropdown {
-    background-color: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.dropdown ul li a {
-    text-decoration: none;
-    color: #333;
-    display: block;
-    padding: 8px 16px;
-}
-
-.dropdown ul li a:hover {
-    background-color: #eee;
-}

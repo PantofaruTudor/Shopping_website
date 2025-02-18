@@ -7,34 +7,40 @@ main_menu_segments.forEach(item => {
 document.addEventListener('DOMContentLoaded', () => {
     const listItems = document.querySelectorAll('.categorii li');
     let hoverTimeout;
-
+    const dropdown_area = document.querySelector('.dropdown_area')
+    let activeItem;
     listItems.forEach(item => {
         const className = item.classList[0];
         const dropdown = document.querySelector(`.${className}_dropdown`);
-
-        const showDropdown = () => {
-            clearTimeout(hoverTimeout);
-            dropdown.classList.add('show');
-        };
-
-        const hideDropdown = () => {
-            hoverTimeout = setTimeout(() => {
-                dropdown.classList.remove('show');
-            }, 400); // Adjust delay as needed
-        };
-
-        if (dropdown) {
-            item.addEventListener('mouseenter', showDropdown);
+                
+        if(dropdown) {
+            
+            item.addEventListener('mouseenter', ()=>{
+                hoverTimeout = setTimeout(() => {
+                    dropdown_area.classList.add('show')
+                    dropdown.classList.add('show')
+                },200)  
+                activeItem = dropdown
+            });
             item.addEventListener('mouseleave', () => {
-                hoverTimeout = setTimeout(hideDropdown, 400);
+                dropdown.classList.remove('show');
+                dropdown_area.classList.remove('show')
             });
 
-            dropdown.addEventListener('mouseenter', () => {
-                clearTimeout(hoverTimeout);
-                dropdown.classList.add('show');
-            });
+            dropdown_area.addEventListener('mouseenter',()=>{
+                if(!dropdown.classList.contains('show'))
+                {
+                    dropdown_area.classList.add('show')
+                    dropdown.classList.add('show')
+                    console.log(activeItem)
+                }
+            })            
+            dropdown_area.addEventListener('mouseleave',()=>{
+                dropdown_area.classList.remove('show')
+                console.log(dropdown)
+                dropdown.classList.remove('show')
+            })
 
-            dropdown.addEventListener('mouseleave', hideDropdown);
         }
     });
 });
