@@ -47,6 +47,7 @@ a{
     font-size: 1rem;
     transition: border-color 0.3s ease, font-size 0.3s ease, width 0.3s ease;
     width: 150px;
+    font-family: "League Spartan", sans-serif;
 }
 
 .search-input::placeholder
@@ -88,7 +89,10 @@ a{
 {
     display: flex;
     align-items: center;
+    cursor: auto;
 }
+
+.search
 #barbati{
     border-color: rgb(0, 0, 0);
     padding: 10px;
@@ -136,6 +140,7 @@ a.gen:hover{
     width: 100%;
     align-items: center;
     position: relative;
+    margin-bottom: 2px;
 }
 
 .grid_container{
@@ -201,7 +206,8 @@ ul.categorii > li.sale::after{
     position: absolute;
     width: 100%;
     pointer-events: none;
-    background-color: rgba(175, 175, 175, 0.11);
+    z-index: 100;
+    
 }
 
 ul.dropdown_info{
@@ -230,14 +236,57 @@ ul.dropdown_info{
     color: rgb(0, 0, 0);
 }
 
+.dropdown_info ul li a:hover{
+    color: rgba(99, 129, 139, 0.959)
+}
 
 .show{
     display: block;
     pointer-events: all;
+    background-color: rgb(245, 245, 245);
 }
 
 .hide{
     display: none;
 }
 
+/*DROPDOWN-MENU (deasupra)----------------------------------- */
 
+.slider-banner-main{
+    margin: auto;
+    overflow: hidden;
+    width: 100%;
+}
+
+.slider-container img{
+    width:100%;
+    display: none;    
+}
+
+.displaySlide
+{
+    display:block;
+}
+
+.prev
+{
+    left: 0;
+}
+
+.next
+{
+    right: 0;
+}
+
+.slider-banner-main button
+{
+    position: absolute;
+    top: 50%;
+    transform: translatey(-50%);
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.308);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
