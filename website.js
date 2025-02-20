@@ -74,7 +74,7 @@ function initializeSlider()
     {
         console.log(slides)
         slides[slideIndex].classList.add("displaySlide")
-        intervalId=setInterval(nextSlide, 5000)
+        intervalId=setInterval(nextSlide, 8000)
     }
 }
 function showSlide(index)
@@ -105,4 +105,4 @@ function nextSlide()
     slideIndex++
     showSlide(slideIndex)
 }
-    
+     
