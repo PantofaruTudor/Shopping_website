@@ -102,6 +102,8 @@ function prevSlide()
 
 function nextSlide()
 {
+    clearInterval(intervalId)
+    intervalId=setInterval(nextSlide, 8000)
     slideIndex++
     showSlide(slideIndex)
 }

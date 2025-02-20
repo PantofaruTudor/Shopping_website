@@ -92,7 +92,6 @@ a{
     cursor: auto;
 }
 
-.search
 #barbati{
     border-color: rgb(0, 0, 0);
     padding: 10px;
@@ -255,20 +254,24 @@ ul.dropdown_info{
 .slider-banner-main{
     margin: auto;
     overflow: hidden;
+    display: flex;
+    align-items: center;
     width: 100%;
     height: 650px;
 }
 
 .slider-container
 {
-    display: flex;
+
+    display: block;
     overflow: hidden;
     height: 100%;
+    width:100%;
 }
 .slider-container img{
-    width:100%;
     height: 100%;
     display: none;    
+    width: 100%;
     object-fit: cover;
 }
 
@@ -287,14 +290,41 @@ ul.dropdown_info{
     right: 0;
 }
 
+
 .slider-banner-main button
 {
     position: absolute;
-    top: 50%;
-    font-size: 2rem;
     background-color: rgba(0, 0, 0, 0.308);
     color: white;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
+}
+.slider-banner-main button:hover{
+    background-color: rgba(155, 100, 100, 0.5);
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .slider-banner-main {
+        height: 500px; /* Adjust height for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .slider-banner-main {
+        height: 400px; /* Adjust height for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .slider-banner-main {
+        height: 300px; /* Adjust height for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .slider-banner-main {
+        height: 200px; /* Adjust height for smaller screens */
+    }
 }
