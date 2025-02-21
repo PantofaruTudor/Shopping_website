@@ -396,7 +396,7 @@ ul.dropdown_info{
 @media only screen and (max-width:600px){
     .brands-slider{
         display: grid;
-        grid-auto-flow:dense;
+        grid-auto-flow:column;
         grid-template-columns: repeat(auto-fill, minmax(100px,1fr));
         gap: 20px;
         overflow: hidden;
@@ -405,3 +405,25 @@ ul.dropdown_info{
 }
 /*BRANDS SCROLL BANNER(deasupra)--------------------------*/
 
+.product-grid
+{
+    margin: 40px 20px 40px 20px;
+    align-items: center;
+}
+.item-grid{
+    
+    display: grid;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(auto-fill, minmax(100px,1fr));
+    gap: 20px;
+    background-color: red;
+    width: 100%;
+    position: absolute;
+}
+
+.item-box{
+    position: relative;
+    width: 100px;
+    height: 200px;
+
+}
