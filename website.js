@@ -127,27 +127,30 @@ window.addEventListener('scroll', () => {
 /*ITEM GRID DISPLAY*/
 
 const products= [
-    {name: 'Barbie Doll', price: 100, image: 'shopping_website_items/items/item1.jpg'},
-    {name: 'Toy Car', price: 50, image: 'shopping_website_items/items/item2.jpg'},
-    {name: 'Lego Set', price: 200, image: 'shopping_website_items/items/item3.jpg'},
-    {name: 'Remote Control Car', price: 150, image: 'shopping_website_items/items/item4.jpg'},
-    {name: 'Action Figure', price: 75, image: 'shopping_website_items/items/item5.jpg'},
-    {name: 'Board Game', price: 100, image: 'shopping_website_items/items/item6.jpg'},
-    {name: 'Puzzle', price: 50, image: 'shopping_website_items/items/item7.jpg'},
-    {name: 'Stuffed Animal', price: 25, image: 'shopping_website_items/items/item8.jpg'},
-    {name: 'Toy Plane', price: 75, image: 'shopping_website_items/items/item9.jpg'},
-    {name: 'Toy Train', price: 100, image: 'shopping_website_items/items/item10.jpg'},    
+    {name: 'Barbie Doll', price: 100, image: "items/item1.jpg"},
+    {name: 'Toy Car', price: 50, image: 'items/item2.jpg'},
+    {name: 'Lego Set', price: 200, image: 'items/item3.jpg'},
+    {name: 'Remote Control Car', price: 150, image: 'items/item4.jpg'},
+    {name: 'Action Figure', price: 75, image: 'items/item5.jpg'},
+    {name: 'Board Game', price: 100, image: 'items/item6.jpg'},
+    {name: 'Puzzle', price: 50, image: 'items/item7.jpg'},
+    {name: 'Stuffed Animal', price: 25, image: 'items/item8.jpg'},
+    {name: 'Toy Plane', price: 75, image: 'items/item9.jpg'},
+    {name: 'Toy Train', price: 100, image: 'items/item10.jpg'},    
 ]
 
 const productGrid = document.querySelector('.item-grid')
 products.forEach(product => {
+    console.log(product.image)
     const productItem = document.createElement('div')
     productItem.className = "product-item"
     productItem.innerHTML = `
-        <img src="${product.image}" alt="${product.name}"
+        <a href="https://www.lego.com/ro-ro">
+        <img src=${product.image} alt=${product.name}></a>
         <h2>${product.name}</h2>
         <p>$${product.price}</p>
     `
     productGrid.appendChild(productItem)
     productItem.classList.add('.item-box')
 })
+

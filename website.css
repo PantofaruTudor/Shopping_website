@@ -396,10 +396,12 @@ ul.dropdown_info{
 @media only screen and (max-width:600px){
     .brands-slider{
         display: grid;
-        grid-auto-flow:column;
+        grid-auto-flow: row;
+        grid-template-rows: auto;
         grid-template-columns: repeat(auto-fill, minmax(100px,1fr));
         gap: 20px;
-        overflow: hidden;
+        overflow-x: hidden;
+        background-color: red;
     } 
     
 }
@@ -413,17 +415,50 @@ ul.dropdown_info{
 .item-grid{
     
     display: grid;
-    grid-auto-flow: dense;
-    grid-template-columns: repeat(auto-fill, minmax(100px,1fr));
-    gap: 20px;
-    background-color: red;
+    grid-auto-flow:dense;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: 30px;
     width: 100%;
-    position: absolute;
+    height: 100%;
+    position: relative;
 }
 
-.item-box{
+.item-grid img{
     position: relative;
-    width: 100px;
-    height: 200px;
+    object-fit: cover;
+    width: 100%;
+    cursor: pointer;
+}
 
+
+.item-grid h2{
+    font-weight: 300;
+    margin: 10px 0 10px 0;
+    cursor: pointer;
+}
+.item-grid p{
+    font-weight: 500;
+}
+
+/* Add this CSS to make the images grow on hover */
+.product-item img:hover {
+    transform: scale(1.05); /* Grow the image by 10% */
+}
+.product-item img{
+    transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+@media only screen and (max-width: 1200px) {
+    .item-grid{
+        grid-template-columns: repeat(3,minmax(150px,1fr));
+        background-color: blue;
+    }
+}
+
+
+@media only screen and (max-width: 900px){
+    .item-grid{
+        grid-template-rows: repeat(3, minmax(0,1fr));
+        background-color: red;
+    }
 }
