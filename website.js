@@ -165,3 +165,28 @@ allProducts.forEach(product => {
     })
 })
 
+
+//function to hide the last incomplete row
+function hideIncompleteRow()
+{
+    const productItems = document.querySelectorAll('.product-item')
+    const itemsPerRow = Math.floor((productGrid.clientWidth + 10) /  productItems[0].clientWidth)
+    const totalItems = productItems.length
+    const lastRow = totalItems % itemsPerRow
+    console.log(productGrid.clientWidth)
+    if(lastRow!=0)
+    {
+        for(let i = totalItems - lastRow; i< totalItems; i++)
+            productItems[i].style.display = 'none'
+    }
+}
+
+hideIncompleteRow()
+
+window.addEventListener('resize' , ()=>{
+    const productItems = document.querySelectorAll('.product-item')
+    productItems.forEach(item => {
+        item.style.display = 'block'
+    })
+    hideIncompleteRow()
+})

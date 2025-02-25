@@ -301,7 +301,7 @@ ul.dropdown_info{
     cursor: pointer;
 }
 .slider-banner-main button:hover{
-    background-color: rgba(155, 100, 100, 0.5);
+    background-color: rgba(155, 100, 100, 0.575);
 }
 
 
@@ -401,7 +401,6 @@ ul.dropdown_info{
         grid-template-columns: repeat(auto-fill, minmax(100px,1fr));
         gap: 20px;
         overflow-x: hidden;
-        background-color: red;
     } 
     
 }
@@ -430,7 +429,6 @@ ul.dropdown_info{
     cursor: pointer;
 }
 
-
 .item-grid h2{
     font-weight: 300;
     margin: 10px 0 10px 0;
@@ -451,14 +449,8 @@ ul.dropdown_info{
 @media only screen and (max-width: 1200px) {
     .item-grid{
         grid-template-columns: repeat(3,minmax(150px,1fr));
-        background-color: blue;
+
     }
 }
  
 
-@media only screen and (max-width: 900px){
-    .item-grid{
-        grid-template-rows: repeat(3, minmax(0,1fr));
-        background-color: red;
-    }
-}
