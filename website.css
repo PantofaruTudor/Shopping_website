@@ -12,7 +12,7 @@ ul {
     list-style: none;
 }
 li{
-    cursor: pointer;
+    cursor: auto;
 }
 a{
     text-decoration: none;
@@ -438,12 +438,29 @@ ul.dropdown_info{
     font-weight: 500;
 }
 
-/* Add this CSS to make the images grow on hover */
 .product-item img:hover {
     transform: scale(1.05); /* Grow the image by 10% */
 }
 .product-item img{
     transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.item-favourite-name-box{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 10px;
+}
+.favourite-item{
+    border: none;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    justify-self: end;
+    background-color: rgba(255, 255, 255, 0.308);
 }
 
 @media only screen and (max-width: 1200px) {

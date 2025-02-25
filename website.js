@@ -144,16 +144,22 @@ products.forEach(product => {
     const productItem = document.createElement('div')
     productItem.className = "product-item"
     productItem.innerHTML = `
-        <img src=${product.image[0]} alt=${product.name}></a>
+        <img class="main_image" src=${product.image[0]} alt=${product.name}></a>
         <a href="https://www.lego.com/ro-ro">
-        <h2>${product.name}</h2>
-        <p>$${product.price}</p>
+        <div class="item-favourite-name-box">
+            <h2>${product.name}</h2>
+            <button class="favourite-item">
+                <img src="MainMenu/white_star.png" alt="favourite">
+            </button>
+            <p>$${product.price}</p>
+        </div>
+        
     `
     productGrid.appendChild(productItem)
     productItem.classList.add('.item-box')
 })
 
-const allProducts = document.querySelectorAll('.item-grid .product-item img')
+const allProducts = document.querySelectorAll('.item-grid .product-item .main_image')
 allProducts.forEach(product => {
     const productItem = product.closest('.product-item')
     const productIndex = Array.from(productGrid.children).indexOf(productItem)
@@ -173,7 +179,6 @@ function hideIncompleteRow()
     const itemsPerRow = Math.floor((productGrid.clientWidth + 10) /  productItems[0].clientWidth)
     const totalItems = productItems.length
     const lastRow = totalItems % itemsPerRow
-    console.log(productGrid.clientWidth)
     if(lastRow!=0)
     {
         for(let i = totalItems - lastRow; i< totalItems; i++)
