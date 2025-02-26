@@ -126,26 +126,38 @@ window.addEventListener('scroll', () => {
 
 /*ITEM GRID DISPLAY*/
 
-const products= [
-    {name: 'Barbie Doll', price: 100, image: ["items/item1.jpg", "items/item2.jpg"]},
-    {name: 'Toy Car', price: 50, image: ['items/item2.jpg', 'items/item3.jpg']},
-    {name: 'Lego Set', price: 200, image: ['items/item3.jpg', 'items/item4.jpg']},
-    {name: 'Remote Control Car', price: 150, image: ['items/item4.jpg', 'items/item5.jpg']},
-    {name: 'Action Figure', price: 75, image: ['items/item5.jpg', 'items/item6.jpg']},
-    {name: 'Board Game', price: 100, image: ['items/item6.jpg', 'items/item7.jpg']},
-    {name: 'Puzzle', price: 50, image: ['items/item7.jpg', 'items/item8.jpg']},
-    {name: 'Stuffed Animal', price: 25, image: ['items/item8.jpg', 'items/item9.jpg']},
-    {name: 'Toy Plane', price: 75, image: ['items/item9.jpg', 'items/item10.jpg']},
-    {name: 'Toy Train', price: 100, image: ['items/item10.jpg', 'items/item1.jpg']},    
+const products = [
+    {name: 'Barbie Doll', price: 100, image: ["items/item1.jpg", "items/item2.jpg"], sale: true},
+    {name: 'Toy Car', price: 50, image: ['items/item2.jpg', 'items/item3.jpg'], sale: false},
+    {name: 'Lego Set', price: 200, image: ['items/item3.jpg', 'items/item4.jpg'], sale: true},
+    {name: 'Remote Control Car', price: 150, image: ['items/item4.jpg', 'items/item5.jpg'], sale: false},
+    {name: 'Action Figure', price: 75, image: ['items/item5.jpg', 'items/item6.jpg'], sale: true},
+    {name: 'Board Game', price: 100, image: ['items/item6.jpg', 'items/item7.jpg'], sale: false},
+    {name: 'Puzzle', price: 50, image: ['items/item7.jpg', 'items/item8.jpg'], sale: true},
+    {name: 'Stuffed Animal', price: 25, image: ['items/item8.jpg', 'items/item9.jpg'], sale: false},
+    {name: 'Toy Plane', price: 75, image: ['items/item9.jpg', 'items/item10.jpg'], sale: true},
+    {name: 'Toy Train', price: 100, image: ['items/item10.jpg', 'items/item11.jpg'], sale: false}, 
+    {name: 'Bar', price: 100, image: ["items/item11.jpg", "items/item12.jpg"], sale: true},   
+    {name: 'Toy People', price: 50, image: ['items/item12.jpg', 'items/item13.jpg'], sale: false},
+    {name: 'Adidas jacket', price: 200, image: ['items/item13.jpg', 'items/item14.jpg'], sale: true},
+    {name: 'Nike shoes', price: 150, image: ['items/item14.jpg', 'items/item15.jpg'], sale: false},
+    {name: 'Puma pants', price: 75, image: ['items/item15.jpg', 'items/item16.jpg'], sale: true},
+    {name: 'Reebok t-shirt', price: 100, image: ['items/item16.jpg', 'items/item17.jpg'], sale: false},
+    {name: 'Under Armour socks', price: 50, image: ['items/item17.jpg', 'items/item18.jpg'], sale: true},
+    {name: 'New Balance hat', price: 100, image: ['items/item18.jpg', 'items/item19.jpg'], sale: false},
+    {name: 'Vans shoes', price: 50, image: ['items/item19.jpg', 'items/item20.jpg'], sale: true},
+    {name: 'Converse jacket', price: 25, image: ['items/item20.jpg', 'items/item1.jpg'], sale: false},
 ]
 
-const productGrid = document.querySelector('.item-grid')
+const productGrid = document.querySelector('.noutati-item-grid')
+const SalesProductGrid = document.querySelector('.sales-item-grid')
 products.forEach(product => {
     const productItem = document.createElement('div')
     productItem.className = "product-item"
     productItem.innerHTML = `
-        <img class="main_image" src=${product.image[0]} alt=${product.name}></a>
         <a href="https://www.lego.com/ro-ro">
+            <img class="main_image" src=${product.image[0]} alt=${product.name}>
+        </a>
         <div class="item-favourite-name-box">
             <h2>${product.name}</h2>
             <button class="favourite-item">
@@ -155,11 +167,16 @@ products.forEach(product => {
         </div>
         
     `
-    productGrid.appendChild(productItem)
-    productItem.classList.add('.item-box')
+    if(product.sale == false)
+        productGrid.appendChild(productItem)
+    else
+        SalesProductGrid.appendChild(productItem)
 })
 
-const allProducts = document.querySelectorAll('.item-grid .product-item .main_image')
+
+
+
+const allProducts = document.querySelectorAll('.product-item .main_image')
 allProducts.forEach(product => {
     const productItem = product.closest('.product-item')
     const productIndex = Array.from(productGrid.children).indexOf(productItem)
@@ -175,7 +192,7 @@ allProducts.forEach(product => {
 //function to hide the last incomplete row
 function hideIncompleteRow()
 {
-    const productItems = document.querySelectorAll('.product-item')
+    const productItems = document.querySelectorAll('.noutati-item-grid .product-item')
     const itemsPerRow = Math.floor((productGrid.clientWidth + 10) /  productItems[0].clientWidth)
     const totalItems = productItems.length
     const lastRow = totalItems % itemsPerRow
@@ -194,4 +211,24 @@ window.addEventListener('resize' , ()=>{
         item.style.display = 'block'
     })
     hideIncompleteRow()
+})
+
+const favourite_prod = document.querySelectorAll('.noutati-item-grid .product-item ')
+favourite_prod.forEach(fav => {
+    let wishList = false
+    const favourite_icon = fav.querySelector('.favourite-item img') 
+    favourite_icon.addEventListener('click',()=>{
+        if(wishList == false){
+            favourite_icon.src='MainMenu/black_star.png'
+            wishList = true
+            /*AICI TREBUIE SA FAC O FUNCTIE SI SA ADAUG FIECARE ELEMENT INTR UN WISHLIST*/
+        }
+        else{
+            favourite_icon.src='MainMenu/white_star.png'
+            wishList = false
+            /*AICI TREBUIE SA FAC O FUNCTIE SI SA SCOT FIECARE ELEMENT DIN WISHLIST*/
+
+        }
+    })
+    
 })

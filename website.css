@@ -406,35 +406,46 @@ ul.dropdown_info{
 }
 /*BRANDS SCROLL BANNER(deasupra)--------------------------*/
 
-.product-grid
+
+.noutati_button_class, .sales_button_class
 {
-    margin: 40px 20px 40px 20px;
-    align-items: center;
-}
-.item-grid{
-    
-    display: grid;
-    grid-auto-flow:dense;
-    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
-    gap: 30px;
-    width: 100%;
-    height: 100%;
-    position: relative;
+    margin: 30px;
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding: 10px;
 }
 
-.item-grid img{
+a.noutati_button
+{
+    border: 2px solid;
+    border-color: black;
+    padding: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.noutati-item-grid , .sales-item-grid{
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: 30px;
+    height: 100%;
+    position: relative;
+    margin: 0 15px 100px 15px;
+}
+
+.noutati-item-grid img, .sales-product-grid img{
     position: relative;
     object-fit: cover;
     width: 100%;
     cursor: pointer;
 }
 
-.item-grid h2{
+.noutati-item-grid h2, .sales-item-grid h2{
     font-weight: 300;
     margin: 10px 0 10px 0;
     cursor: pointer;
 }
-.item-grid p{
+.noutati-item-grid p , .sales-item-grid p{
     font-weight: 500;
 }
 
@@ -455,19 +466,30 @@ ul.dropdown_info{
 }
 .favourite-item{
     border: none;
-    top: 10px;
-    right: 10px;
     width: 30px;
     height: 30px;
     justify-self: end;
     background-color: rgba(255, 255, 255, 0.308);
 }
 
-@media only screen and (max-width: 1200px) {
-    .item-grid{
-        grid-template-columns: repeat(3,minmax(150px,1fr));
 
+/* NOUTATI PRODUCT GRID(deasupra)/////////////////////////////////*/
+
+.sales_button_class
+{
+    margin: 30px;
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding: 10px;   
+    justify-self: end;
+} 
+
+
+@media only screen and (max-width: 1200px) {
+    .noutati-item-grid{
+        grid-template-columns: repeat(3,minmax(150px,1fr));
+    }
+    .sales-item-grid{
+        grid-template-columns: repeat(3,minmax(150px,1fr));
     }
 }
- 
-
