@@ -72,7 +72,6 @@ function initializeSlider()
 {
     if(slides.length > 0)
     {
-        console.log(slides)
         slides[slideIndex].classList.add("displaySlide")
         intervalId=setInterval(nextSlide, 8000)
     }
@@ -165,8 +164,8 @@ products.forEach(product => {
             </button>
             <p>$${product.price}</p>
         </div>
-        
     `
+
     if(product.sale == false)
         productGrid.appendChild(productItem)
     else
@@ -179,20 +178,27 @@ products.forEach(product => {
 const allProducts = document.querySelectorAll('.product-item .main_image')
 allProducts.forEach(product => {
     const productItem = product.closest('.product-item')
-    const productIndex = Array.from(productGrid.children).indexOf(productItem)
+    const isInSalesGrid = productItem.closest('.sales-item-grid') !== null
+    const productIndex_noutati = Array.from(productGrid.children).indexOf(productItem)
+    const productIndex_sales = Array.from(SalesProductGrid.children).indexOf(productItem)
     product.addEventListener('mouseenter', () => {
-        product.src = products[productIndex].image[1]
+        if(isInSalesGrid)
+            product.src = products[productIndex_sales].image[1]
+        else
+            product.src = products[productIndex_noutati].image[1]
     })
     product.addEventListener('mouseleave', () => {
-        product.src = products[productIndex].image[0]
+        if(isInSalesGrid)
+            product.src = products[productIndex_sales].image[0]
+        else
+            product.src = products[productIndex_noutati].image[0]
     })
 })
 
-
-//function to hide the last incomplete row
-function hideIncompleteRow()
+//function to hide the last incomplete row //////////////////////////////////////////
+function hideIncompleteRow(grid)
 {
-    const productItems = document.querySelectorAll('.noutati-item-grid .product-item')
+    const productItems = document.querySelectorAll(`${grid} .product-item`)
     const itemsPerRow = Math.floor((productGrid.clientWidth + 10) /  productItems[0].clientWidth)
     const totalItems = productItems.length
     const lastRow = totalItems % itemsPerRow
@@ -202,18 +208,55 @@ function hideIncompleteRow()
             productItems[i].style.display = 'none'
     }
 }
+hideIncompleteRow('.noutati-item-grid')
+hideIncompleteRow('.sales-item-grid')
 
-hideIncompleteRow()
+
+function hideBannerIncompleteRow()
+{
+    const bannerItems = document.querySelectorAll('.brands-slider img')
+    const bannerGrid = document.querySelector('.brands-slider')
+    const itemsPerRow = Math.floor((bannerGrid.clientWidth + 10) /  bannerItems[0].clientWidth)
+    const totalItems = bannerItems.length
+    const lastRow = totalItems % itemsPerRow
+    if(lastRow!=0)
+    {
+        for(let i = totalItems - lastRow; i< totalItems; i++)
+        {
+            let mainBannerItem = bannerItems[i].closest('.logo-box')
+            mainBannerItem.style.display = 'none'
+        }
+            
+    }
+}
+if(window.innerWidth < 600)
+    hideBannerIncompleteRow()
 
 window.addEventListener('resize' , ()=>{
     const productItems = document.querySelectorAll('.product-item')
     productItems.forEach(item => {
         item.style.display = 'block'
     })
-    hideIncompleteRow()
+    hideIncompleteRow('.noutati-item-grid')
+    hideIncompleteRow('.sales-item-grid')
+    if(window.innerWidth < 600) {   
+        hideBannerIncompleteRow()
+    }
+    else{
+        const bannerItems = document.querySelectorAll('.brands-slider img')
+        bannerItems.forEach(item => {
+            item.closest('.logo-box').style.display = 'block'
+        })
+        //REZOLVARE TEMPORARA
+    }
+
+
 })
 
-const favourite_prod = document.querySelectorAll('.noutati-item-grid .product-item ')
+
+//function to put an item in the favourite list //////////////////////////////////////////
+
+const favourite_prod = document.querySelectorAll('.product-item ')
 favourite_prod.forEach(fav => {
     let wishList = false
     const favourite_icon = fav.querySelector('.favourite-item img') 

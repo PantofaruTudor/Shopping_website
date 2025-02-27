@@ -2,9 +2,12 @@
 body{
     margin:0;
     font-family:"League Spartan", serif;
+    overflow-x: hidden;
 }
+
 *{
     box-sizing: border-box;
+
 }
 ul {
     padding: 0;
@@ -360,12 +363,12 @@ ul.dropdown_info{
 }
 
 .logo-box{
-    position: relative;
+    display: flex;
+    justify-content: center;
     width: 200px;
     height: 200px;
     display: flex;
     align-items: center;
-    justify-content: center;
     cursor: pointer;
 
 }
@@ -397,23 +400,29 @@ ul.dropdown_info{
     .brands-slider{
         display: grid;
         grid-auto-flow: row;
-        grid-template-rows: auto;
-        grid-template-columns: repeat(auto-fill, minmax(100px,1fr));
+        grid-template-columns: repeat(3,minmax(100px,1fr));
         gap: 20px;
         overflow-x: hidden;
     } 
+    .logo-box{
+        width: 100%;
+        height: 100px;
+    }
     
 }
 /*BRANDS SCROLL BANNER(deasupra)--------------------------*/
 
 
-.noutati_button_class, .sales_button_class
+.noutati_button_class, .sales_button_class, .upcoming_button_class
 {
     margin: 30px;
     font-weight: 500;
     font-size: 1.3rem;
     padding: 10px;
 }
+
+
+
 
 a.noutati_button
 {
@@ -477,19 +486,90 @@ a.noutati_button
 
 .sales_button_class
 {
-    margin: 30px;
-    font-weight: 500;
-    font-size: 1.3rem;
-    padding: 10px;   
     justify-self: end;
 } 
 
-
+.sales-item-grid p{
+    text-decoration:line-through;
+}
 @media only screen and (max-width: 1200px) {
     .noutati-item-grid{
         grid-template-columns: repeat(3,minmax(150px,1fr));
     }
     .sales-item-grid{
         grid-template-columns: repeat(3,minmax(150px,1fr));
+    }
+}
+
+/*SALES PRODUCT GRID(deasupra)///////////////////////////////////////*/
+
+.upcoming-product-grid
+{
+    background-color: black;
+    height: 800px;
+    width: 100%;
+    margin: 50px 0 50px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.upcoming-product-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.upcoming-header-text{
+    position: relative;
+    font-size: 1.5rem;
+    color:white;
+    margin-bottom: 0px;
+}
+.upcoming_button_class{
+    position: relative;
+}
+.upcoming_button_class a{
+    color: white;
+    margin: 20px 0 20px 0;
+    cursor: pointer;
+    padding: 15px;
+    border: 2px solid white;
+    border-radius: 15px;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+.upcoming_button_class a:hover
+{
+    border-color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.next-date-icon{
+    position: absolute;
+    right: 10%;
+    transform: translateX(-35%);
+    width: 170px;
+    height: 170px;
+    transform: rotate(-45deg);
+    z-index: 0;
+}
+
+.upcoming-border-grid{
+    margin: 0 0 0 30px;
+}
+
+.upcoming-item-grid{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    height: 600px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+    .next-date-icon{
+        display: none;
     }
 }
