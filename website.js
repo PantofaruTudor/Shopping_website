@@ -164,9 +164,9 @@ products.forEach(product => {
     const productItem = document.createElement('div')
     productItem.className = "product-item"
     productItem.innerHTML = `
-        <a href="https://www.lego.com/ro-ro">
-            <img class="main_image" src=${product.image[0]} alt=${product.name}>
-        </a>
+        <a href="https://www.lego.com/ro-ro"></a>
+        <img class="main_image" src=${product.image[0]} alt=${product.name}>
+        
         <div class="item-favourite-name-box">
             <h2>${product.name}</h2>
             <button class="favourite-item">
@@ -289,10 +289,37 @@ favourite_prod.forEach(fav => {
     
 })
 
+//Timer to display how much time is left until items appear//////////////////////////
 
-// UPCOMING PRODUCT GRID//////////////////////////////////////////////////
+const upcomingItems = document.querySelectorAll('.upcoming-item-grid .product-item')
+upcomingItems.forEach(item => {
+    const timeLeft = Math.floor(Math.random() * 10)
+    console.log(timeLeft)
+    const timeLeftElement = document.createElement('div')
+    timeLeftElement.innerHTML = `<p>Time left: ${timeLeft} days</p>`
+    item.appendChild(timeLeftElement)
+})
 
-const upcomingProducts = [
-    
-]
+
+
+
+
+
+
+
+
+
+function next_upcoming_item(){
+    const upcomingItemWidth = upcomingGrid.querySelector('.product-item').clientWidth
+    upcomingGrid.scrollBy({left: upcomingItemWidth + 20, behavior: 'smooth'})
+    console.log(upcomingItemWidth)
+}
+
+const upcoming_scroll_left = document.querySelector('.previous')
+const upcoming_scroll_right = document.querySelector('.upper')
+const upcomingGrid = document.querySelector('.upcoming-item-grid')
+upcoming_scroll_right.addEventListener('click', () => {
+    upcomingGrid.scrollWidth+=200
+})
+
 
