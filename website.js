@@ -146,10 +146,20 @@ const products = [
     {name: 'New Balance hat', price: 100, image: ['items/item18.jpg', 'items/item19.jpg'], sale: false},
     {name: 'Vans shoes', price: 50, image: ['items/item19.jpg', 'items/item20.jpg'], sale: true},
     {name: 'Converse jacket', price: 25, image: ['items/item20.jpg', 'items/item1.jpg'], sale: false},
+
+    {name: 'Aries 2096 longsleeve', price: 100, image: ["items/upcoming1.jpg"], upcoming: true, sale:false},
+    {name: 'Taurus shirt', price: 50, image: ['items/upcoming2.jpg'] , upcoming: true, sale:false},
+    {name: 'Rick Owens hoodie', price: 200, image: ['items/upcoming3.jpg'] , upcoming: true , sale:false},
+    {name: 'Gucci pants', price: 150, image: ['items/upcoming4.jpg'] , upcoming: true , sale:false},
+    {name: 'Prada t-shirt', price: 75, image: ['items/upcoming5.jpg'] , upcoming: true , sale:false},
+    {name: 'Rick Owens jacket', price: 100, image: ['items/upcoming6.jpg'], upcoming: true ,sale:false},
+    {name: 'Aries shirt', price: 50, image: ['items/upcoming7.jpg'], upcoming: true , sale:false},
+    {name: 'Gucci jacket', price: 25, image: ['items/upcoming8.jpg'], upcoming: true, sale:false},
 ]
 
 const productGrid = document.querySelector('.noutati-item-grid')
 const SalesProductGrid = document.querySelector('.sales-item-grid')
+const upcomingProductGrid = document.querySelector('.upcoming-item-grid')
 products.forEach(product => {
     const productItem = document.createElement('div')
     productItem.className = "product-item"
@@ -166,10 +176,12 @@ products.forEach(product => {
         </div>
     `
 
-    if(product.sale == false)
-        productGrid.appendChild(productItem)
-    else
+    if(product.sale == true)
         SalesProductGrid.appendChild(productItem)
+    else if(product.upcoming == true)
+        upcomingProductGrid.appendChild(productItem)
+    else
+        productGrid.appendChild(productItem)
 })
 
 
@@ -179,18 +191,19 @@ const allProducts = document.querySelectorAll('.product-item .main_image')
 allProducts.forEach(product => {
     const productItem = product.closest('.product-item')
     const isInSalesGrid = productItem.closest('.sales-item-grid') !== null
+    const isInProductGrid = productItem.closest('.noutati-item-grid') !== null
     const productIndex_noutati = Array.from(productGrid.children).indexOf(productItem)
     const productIndex_sales = Array.from(SalesProductGrid.children).indexOf(productItem)
     product.addEventListener('mouseenter', () => {
         if(isInSalesGrid)
             product.src = products[productIndex_sales].image[1]
-        else
+        else if(isInProductGrid)
             product.src = products[productIndex_noutati].image[1]
     })
     product.addEventListener('mouseleave', () => {
         if(isInSalesGrid)
             product.src = products[productIndex_sales].image[0]
-        else
+        else if(isInProductGrid)
             product.src = products[productIndex_noutati].image[0]
     })
 })
@@ -275,3 +288,11 @@ favourite_prod.forEach(fav => {
     })
     
 })
+
+
+// UPCOMING PRODUCT GRID//////////////////////////////////////////////////
+
+const upcomingProducts = [
+    
+]
+
