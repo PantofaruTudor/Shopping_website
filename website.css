@@ -159,6 +159,7 @@ ul.categorii > li {
     position: relative;
     padding: 10px;
     font-size: 1.4rem;
+    font-weight: 350;
     color: black;
     cursor: pointer;
     border-bottom: white;
